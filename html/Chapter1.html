@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../jquery/jquery.js"></script>
+		<link rel="stylesheet" href="../css/reset.css" />
+		<script type="text/javascript" src="../js/rem.js"></script>
+		<style>
+			.box {
+				width: 16rem;
+				height: 100vh;
+				background: url(../img/林荫道001.jpg);
+				background-size: cover;
+				position: absolute;
+			}
+			
+			.name1 {
+				width: 16rem;
+				height: 100vh;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			
+			.Dialogbox {
+				width: 12rem;
+				height: 3rem;
+				background: url(../img/旁白底板.png);
+				background-size: 100% 100%;
+				z-index: 123;
+				position: absolute;
+				left: 1rem;
+				top: 23rem;
+				padding: 1rem;
+				opacity: 0;
+			}
+			
+			.Dialogboxtxt {
+				opacity: .8;
+				color: white;
+			}
+			
+			.DialogboxName {
+				width: 5rem;
+				height: 1rem;
+				background-image: url(../img/女-角色名字底板.png);
+				padding: .3rem;
+				background-size: 100% 100%;
+				position: absolute;
+				top: -1rem;
+				right: 2rem;
+				color: white;
+				font-size: 18px;
+				text-align: center;
+				line-height: 1.3rem;
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<img src="../img/角色-威廉.png" class="name1" />
+			<div class="Dialogbox">
+				<!--对话内容-->
+				<span class="Dialogboxtxt"></span>
+				<!--人物名称-->
+				<p class="DialogboxName">一二三四</p>
+			</div>
+		</div>
+		<script>
+			//刚进入页面
+			$.ajax({
+				type: "get",
+				url: "../json/json1.json",
+				success(data) {
+					//人物进入
+					Firstentry(data)
+					//点击事件
+					var dable = true
+					$('.box').click(function() {
+						boxNode(data)
+					})
+				}
+			});
+
+			//首次进入
+			function Firstentry(data) {
+				$('.name1').fadeIn(500, function() {
+					//对话框进入
+					$('.Dialogbox').animate({
+						opacity: '1',
+						top: '21rem'
+					}, 400)
+					//打印文字
+					var dadaNode = data[0].content.split('')
+					arrNode = []
+					var timer = setInterval(function() {
+						arrNode.push(dadaNode.shift())
+						$('.Dialogboxtxt').text(arrNode.join(''))
+						if(dadaNode.length < 1) {
+							window.clearInterval(timer)
+						}
+					}, 20)
+				})
+			}
+			//点击事件
+			var dable = true
+
+			function boxNode(data) {
+				//判断定时器走完才能再次点击
+				if(dable) {
+					dable = false
+					//刚点进来，清空动画
+					$('.name1').fadeOut(0)
+					$('.Dialogbox').css({
+						'opacity': '0',
+						'top': '23rem'
+					})
+					//人物进入
+					$('.name1').fadeIn(300, function() {
+						//删除第一项
+						data.shift()
+						//对话框进入
+						$('.Dialogbox').animate({opacity: '1',top: '21rem'}, 400)
+						$('.DialogboxName').text(data[0].nameid)
+						//判断对话框
+						if(data[0].nameid=='vo'){
+							$('.Dialogbox').css('background-image','url(../img/对话框版心.png)')
+							$('.Dialogboxtxt').css('color','black')
+							$('.DialogboxName').css('display','none')
+						}else {
+							$('.Dialogbox').css('background-image','url(../img/旁白底板.png)')
+							$('.Dialogboxtxt').css('color','white')
+							$('.DialogboxName').css('display','block')
+						}
+						//判断人物
+						if(data[0].personpic=='per001pic1'){
+							$('.name1').attr('src','../img/角色-米游.png')
+						}else if(data[0].personpic=='per001pic2'){
+							$('.name1').attr('src','../img/角色-威廉.png')
+						}
+						if(data[0].personpic=='per001pic1'){
+							$('.name1').attr('src','../img/角色-米游.png')
+						}else if(data[0].personpic=='per001pic2'){
+							$('.name1').attr('src','../img/角色-威廉.png')
+						}
+						
+						//判断背景
+//						if(data[0].bgpic==''){
+//							
+//						}
+						//打印文字
+						var dadaNode = data[0].content.split('')
+						arrNode = []
+						var timer = setInterval(function() {
+							arrNode.push(dadaNode.shift())
+							$('.Dialogboxtxt').text(arrNode.join(''))
+							if(dadaNode.length < 1) {
+								dable = true
+								window.clearInterval(timer)
+							}
+
+						}, 20)
+					})
+
+				}
+			}
+		</script>
+	</body>
+
+</html>

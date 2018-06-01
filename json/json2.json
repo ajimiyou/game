@@ -1,0 +1,10 @@
+[
+{"branch":"false","bgpic":"bg4","isdouble":"false","content":"真的要颁奖给我了吗？","nameid":"os","dialogpic":"dialogos","personpic":"per004pic1"},
+{"branch":"false","bgpic":"bg4","isdouble":"false","content":"恭喜奇妙社获得年度废柴社团。","nameid":"name004","dialogpic":"dialogper004","personpic":"per004pic2"},
+{"branch":"false","bgpic":"bg4","isdouble":"false","content":"场下一片哗然，其他两个社团社长，击掌庆贺。秦之川走到我面前。","nameid":"vo","dialogpic":"dialogvo","personpic":"per004pic2"},
+{"branch":"false","bgpic":"bg4","isdouble":"false","content":"什么？废柴？","nameid":"os","dialogpic":"dialogos","personpic":"per004pic2"},
+{"branch":"false","bgpic":"bg4","isdouble":"true","content":"奇妙社？怎么从来没听说过？","nameid":"other001","dialogpic":"dialogother001","personpic":"picother003"},
+{"branch":"false","bgpic":"bg4","isdouble":"true","content":"就是那群天天不知道在捣鼓什么东西的神经病啊。","nameid":"other002","dialogpic":"dialogother001","personpic":"picother004"},
+{"branch":"false","bgpic":"bg4","isdouble":"false","content":"确定是奇妙社？","nameid":"gamer","dialogpic":"dialoggamer","personpic":"per004pic1"},
+{"branch":"false","bgpic":"bg4","isdouble":"false","content":"确定。","nameid":"name004","dialogpic":"dialogper004","personpic":"per004pic1"}
+]

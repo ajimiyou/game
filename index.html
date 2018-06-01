@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="jquery/jquery.js" ></script>
+		<link rel="stylesheet" href="css/reset.css" />
+  		<link rel="stylesheet" href="css/swiper.min.css">
+		
+		<script type="text/javascript" src="js/rem.js" ></script>
+		<style>
+			body {
+				width: 16rem;
+				height: 100vh;
+				overflow: hidden;
+			}
+			.box {
+				width: 16rem;
+				height: 100vh;
+				position: absolute;
+			}
+			.img{
+				margin: 0;
+				padding: 0;
+				position: absolute;
+				width: 16rem;
+				height: 33.33%;
+				display: block;
+				opacity: 0;
+			}
+			.pic1 {
+				top: -33.33%;
+			}
+			.pic2 {
+				top: 33.33%;
+				left: -16rem;
+			}
+			.pic3 {
+				bottom: -33.33%;
+			}
+			.box2 {
+				width: 16rem;
+				height: 100vh;
+				display: none;
+			}
+			
+			
+			.swiper-container {
+		      width: 100%;
+		      height: 100%;
+		    }
+		    .swiper-slide {
+		      text-align: center;
+		      font-size: 18px;
+		      background: #fff;
+		      display: -webkit-box;
+		      display: -ms-flexbox;
+		      display: -webkit-flex;
+		      display: flex;
+		      -webkit-box-pack: center;
+		      -ms-flex-pack: center;
+		      -webkit-justify-content: center;
+		      justify-content: center;
+		      -webkit-box-align: center;
+		      -ms-flex-align: center;
+		      -webkit-align-items: center;
+		      align-items: center;
+		    }
+		    .caidan {
+		    		width: 2rem;
+		    		height: 2rem;
+		    		background: red;
+		    		position: fixed;
+		    		top: 0;
+		    		right: 0;
+		    		z-index: 11;
+		    		text-align: center;
+		    		line-height: 2rem;
+		    }
+		    .menubox {
+		    		width: 16rem;
+		    		height: 100vh;
+		    		top: -100vh;
+		    		background: rgba(0,0,0,.7);
+		    		position: absolute;
+		    		z-index: 333;
+		    		/*opacity: 0;*/
+		    }
+		    .menubox p {
+		    		width: 12rem;
+		    		height: 2rem;
+		    		background: white;
+		    		border-radius: 1rem;
+		    		text-align: center;
+		    		line-height: 2rem;
+		    		margin-left: 2rem;
+		    		margin-top: 2rem;
+		    }
+		    .menubox p:first-of-type {
+		    		margin-top: 12rem;
+		    }
+		    .chapter {
+		    		width: 16rem;
+		    		height: 100%;
+		    		position: absolute;
+		    }
+		    .chapter>img {
+		    		width: 16rem;
+		    		height: 17rem;
+		    }
+		    .chapter>.chaptername {
+		    		width: 2rem;
+		    		height: 10rem;
+		    		font-size: 30px;
+		    		border: 1px solid black;
+		    		position: absolute;
+		    		top: 13rem;
+		    		left: 7rem;
+		    		text-align: center;
+		    		line-height: 3rem;
+		    		background: white;
+		    }
+		    .chapter>.chapternumber {
+		    		width: 3rem;
+		    		height: 3rem;
+		    		border: 1px solid black;
+		    		text-align: center;
+		    		line-height: 3rem;
+		    		border-radius: 50%;
+		    		position: absolute;
+		    		left: 6.5rem;
+		    		top: 21.5rem;
+		    		background: white;
+		    		font-size: 40px;
+		    }
+		    
+		</style>
+	</head>
+	<body>
+		<div class="box" class="zhangjie">
+			<img src="img/bj001.gif" class="pic1 img"/>
+			<img src="img/bj001.gif" class="pic2 img"/>
+			<img src="img/bj001.gif" class="pic3 img"/>
+		</div>
+		<div class="box2" >
+			 <div class="swiper-container">
+			 	<div class="caidan">菜单</div>
+			   	<div class="swiper-wrapper">
+				      <div class="swiper-slide">
+				      	<div class="chapter">
+				      		<img src="img/bj0003.jpg"/>
+				      		<p class="chaptername" onclick="chaptername()">第一章</p>
+				      		<p class="chapternumber">1</p>
+				      	</div>
+				      </div>
+				      <div class="swiper-slide">
+				      	<div class="chapter">
+				      		<img src="img/bj0008.jpg"/>
+				      		<p class="chaptername" onclick="chaptername()">第二章</p>
+				      		<p class="chapternumber">2</p>
+				      	</div>
+				      </div>
+				      <div class="swiper-slide">
+				      	<div class="chapter">
+				      		<img src="img/bj0009.jpg"/>
+				      		<p class="chaptername" onclick="chaptername()">第三章</p>
+				      		<p class="chapternumber">3</p>
+				      	</div>
+				      </div>
+				      <div class="swiper-slide">
+				      	<div class="chapter">
+				      		<img src="img/bj0003.jpg"/>
+				      		<p class="chaptername" onclick="chaptername()">第四章</p>
+				      		<p class="chapternumber">4</p>
+				      	</div>
+				      </div>
+			    </div>
+			  </div>
+		</div>
+		<div class="menubox">
+			<p>设定</p>
+			<p onclick="Signout()">退出游戏</p>
+			<p onclick="Returnmenu()">返回菜单</p>
+		</div>
+		<!--<div class="box3">
+			<img src="img/WechatIMG1.png" class="people1"/>
+			<img src="img/WechatIMG2.png" class="people2"/>
+			<img src="img/WechatIMG3.png" class="people3"/>
+			<img src="img/0001.png" class="people4"/>
+			<img src="img/0002.png" class="people5"/>
+			<img src="img/0003.png" class="people6"/>
+			<img src="img/0004.png" class="people7"/>
+		
+				<div class="dialog">
+					<span class="name">
+						hahahaaaa
+					</span>
+					<p class="www1">对话框</p>
+				</div>
+				<div class="dialog2">
+					<span class="name">
+						hahahaaaa
+					</span>
+					<p class="www">对话框</p>
+				</div>
+			<img src="H5DD4FE9E/www/img/WechatIMG1.png" class="people001"/>
+			<img src="H5DD4FE9E/www/img/WechatIMG2.png" class="people002"/>
+		</div>-->
+		
+		<script src="js/swiper.min.js"></script>
+		<script>
+			//开场动画   
+			$(".box2").fadeIn(200,function(){
+				//左右滑动切换
+				var swiper = new Swiper('.swiper-container');
+			})
+			
+			//出现菜单
+			$('.caidan').click(function(){
+				$('.menubox').animate({top:'0'},1000)
+			})
+			//返回菜单
+			function Returnmenu(){
+				$('.menubox').animate({top:'-100vh'},1000)
+			}
+			function Signout() {
+				if(confirm("您确定要关闭本页吗？")){
+					window.opener=null;
+					window.open('','_self');
+					window.close();
+				}
+				else{}
+			}
+			//选章节
+			function chaptername(){
+				$('.box2').css('display','none')
+//				alert(1)
+				$('.pic1').animate({top:'0',opacity:'1'},1000,function(){
+				$('.pic2').animate({left:'0',opacity:'1'},1000,function(){
+					$('.pic3').animate({bottom:'0',opacity:'1'},1000,function(){
+						$('.pic1').attr('src','img/bj0001.jpg')
+						$('.pic2').attr('src','img/bj0001.jpg')
+						$('.pic3').attr('src','img/bj0001.jpg')
+						$(".box").fadeOut(1000,function(){
+							window.location.href='./html/Chapter1.html'
+						})
+					})
+				})
+				})
+//			}	
+//				
+
+			}
+		</script>
+	</body>
+</html>
